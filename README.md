@@ -117,12 +117,19 @@ You can change them in the **ssl.sh** befor you run it.<br />
 
 `
 $ cat > /opt/kafka/ssl/client-ssl.properties << EOF 
+
 security.protocol=SSL 
+
 ssl.truststore.location=/opt/kafka/ssl/kafka.client.truststore.jks 
+
 ssl.truststore.password=elhaloui123456
+
 ssl.keystore.location=/opt/kafka/ssl/kafka.client.keystore.jks
+
 ssl.keystore.password=elhaloui123456 
+
 ssl.key.password=elhaloui123456
+
 EOF
 `
 
