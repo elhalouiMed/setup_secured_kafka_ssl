@@ -73,12 +73,12 @@ we need to have openssl and java installed on our machine, so we make sure that 
 
 by default i use the following data for certficates creation
 
->`VALIDITY=1825
->KAFKA_HOST=localhost
->SSLPASSPHRASE=elhaloui123456
->CERTIFICATE_INFO="CN=$KAFKA_HOST,OU=kafka,O=kafka,L=kafka,ST=kafka,C=XX"
->CA_INFO="/C=XX/ST=kafka/L=kafka/O=kafka/OU=kafka/CN=$KAFKA_HOST/"
->KAFKA_SSL="/opt/kafka/ssl" `
+>VALIDITY=1825<br />
+>KAFKA_HOST=localhost<br />
+>SSLPASSPHRASE=elhaloui123456<br />
+>CERTIFICATE_INFO="CN=$KAFKA_HOST,OU=kafka,O=kafka,L=kafka,ST=kafka,C=XX"<br />
+>CA_INFO="/C=XX/ST=kafka/L=kafka/O=kafka/OU=kafka/CN=$KAFKA_HOST/"<br />
+>KAFKA_SSL="/opt/kafka/ssl"<br />
 
 You can change them in the **ssl.sh** befor you run it.
 * Once the certificates and keystores are created, we can start the Kafka Broker and the embedded zookeeper which comes with the installation.
