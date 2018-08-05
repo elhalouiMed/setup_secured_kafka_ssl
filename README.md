@@ -89,6 +89,7 @@ You can change them in the **ssl.sh** befor you run it.<br />
 `$ chmod +x ssl.sh`<br />
 - run it<br />
 `$ ./ssl.sh`<br />
+- You would need to manually intervene when asked to provide some information (e.g.passphrases and also what user you would like to give access to, in my case passphrase is elhaloui123456 & the user is mohammed)<br />
 
 * Once the certificates and keystores are created, we can start the Kafka Broker and the embedded zookeeper which comes with the installation.
 
