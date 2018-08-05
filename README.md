@@ -17,8 +17,9 @@ https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.11-2.0.0.tgz
 `$ mkdir -p /opt/kafka`<br />
  `$ cd /opt/kafka`<br />
  
-- Here you can change kafka version, i will use the latest version available in my case
-
+- clone the repository that contain **ssl.sh** file<br />
+`$ git clone https://github.com/elhalouiMed/setup_secured_kafka_ssl.git`<br />
+- Here you can change kafka version, i will use the latest version available in my case<br />
  `$ wget http://www-us.apache.org/dist/kafka/2.0.0/kafka_2.11-2.0.0.tgz`<br />
  `$ tar xvf kafka_2.11-2.0.0.tgz`<br />
  
