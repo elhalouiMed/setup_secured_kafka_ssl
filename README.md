@@ -23,15 +23,13 @@ https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.11-2.0.0.tgz
  
 - Here you can change kafka version, i will use the latest version available in my case
 
- ` $ wget http://www-us.apache.org/dist/kafka/2.0.0/kafka_2.11-2.0.0.tgz`
- 
- `$ tar xvf kafka_2.11-2.0.0.tgz`
+ `$ wget http://www-us.apache.org/dist/kafka/2.0.0/kafka_2.11-2.0.0.tgz`<br\>
+ `$ tar xvf kafka_2.11-2.0.0.tgz`<br\>
  
 - now we will change some of the kafka broker properties
 
-`$ cd kafka_2.11-2.0.0/config`
-
-`$ nano server.properties `
+`$ cd kafka_2.11-2.0.0/config`<br\>
+`$ nano server.properties `<br\>
 
 You will need to find the following configs
 
@@ -68,12 +66,12 @@ ssl.client.auth=required<br />
 
 So all the basic necessary configuration are now done for the Kafka Broker. Now we will proceed in creating the necessary directories and SSL certificates to make this work
 
-`$ mkdir -p /opt/kafka/ssl`
-`$ cd /opt/kafka/ssl`
+`$ mkdir -p /opt/kafka/ssl`<br\>
+`$ cd /opt/kafka/ssl`<br\>
 
 we need to have openssl and java installed on our machine, so we make sure that we have them
 
-`$ apt-get install java-1.8.0-openjdk openssl`
+`$ apt-get install java-1.8.0-openjdk openssl`<br\>
 
 -   You can then use the **ssl.sh** script to create the necessary server and client certificates/keystores.
 
