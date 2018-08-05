@@ -29,7 +29,7 @@ https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.11-2.0.0.tgz
  
 - now we will change some of the kafka broker properties
 
-`$ cd kafka_2.11-2.0.0/configs`
+`$ cd kafka_2.11-2.0.0/config`
 
 `$ nano server.properties `
 
