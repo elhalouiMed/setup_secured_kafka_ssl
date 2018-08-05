@@ -71,6 +71,7 @@ So all the basic necessary configuration are now done for the Kafka Broker. Now 
 `$ cd /opt/kafka/ssl`
 
 we need to have openssl and java installed on our machine, so we make sure that we have them
+
 `$ apt-get install java-1.8.0-openjdk openssl`
 
 -   You can then use the **ssl.sh** script to create the necessary server and client certificates/keystores.
