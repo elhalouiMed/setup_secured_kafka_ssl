@@ -86,13 +86,21 @@ by default i use the following data for certficates creation
 
 You can change them in the **ssl.sh** befor you run it.
 * Once the certificates and keystores are created, we can start the Kafka Broker and the embedded zookeeper which comes with the installation.
+
 `$ cd /opt/kafka/kafka_2.11-2.0.0/bin`
+
 - First you would need to start the zookeeper service
+
  `$ nohup ./zookeeper-server-start.sh ../config/zookeeper.properties > zookeeper.out &`
+ 
 - After zookeeper has started, start the kafka broker
+
 `$ nohup ./kafka-server-start.sh ../config/server.properties > kafka.out &`
+
 - Next, we will create a kafka topic so that we can then configure the ACLs.
+
 `$ ./kafka-topics.sh --zookeeper localhost:2181 --create --topic test1 --partitions 1 --replication-factor 1`
+
 -    Now we will configure the ACLs on this newly created topic for the user that was created in the certificate (in my case the user is “mohammed”).
  #### To create ACLs for producer use the following command
 `$ ./kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2181 --add --allow-principal User:"CN=mohammed,OU=kafka,O=kafka,L=kafka,ST=kafka,C=XX" --producer --topic test1`
