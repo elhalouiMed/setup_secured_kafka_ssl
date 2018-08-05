@@ -4,12 +4,12 @@ in this tutorial, i will show you how to setup kafka cluster on your server, sec
 
 go to the kafka official web site ad download the lastet version of kafka.
 
-https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.11-2.0.0.tgz
+https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.12-2.0.0.tgz
 
  at this time, in my case, the latest version is available in the link below
  
  
- http://www-us.apache.org/dist/kafka/2.0.0/kafka_2.11-2.0.0.tgz
+ http://www-us.apache.org/dist/kafka/2.0.0/kafka_2.12-2.0.0.tgz
 
 - switch as root in your machine <br />
 `$ sudo su`<br />
@@ -20,12 +20,12 @@ https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.11-2.0.0.tgz
 - clone the repository that contain **ssl.sh** file<br />
 `$ git clone https://github.com/elhalouiMed/setup_secured_kafka_ssl.git`<br />
 - Here you can change kafka version, i will use the latest version available in my case<br />
- `$ wget http://www-us.apache.org/dist/kafka/2.0.0/kafka_2.11-2.0.0.tgz`<br />
- `$ tar xvf kafka_2.11-2.0.0.tgz`<br />
+ `$ wget http://www-us.apache.org/dist/kafka/2.0.0/kafka_2.12-2.0.0.tgz`<br />
+ `$ tar xvf kafka_2.12-2.0.0.tgz`<br />
  
 - now we will change some of the kafka broker properties
 
-`$ cd kafka_2.11-2.0.0/config`<br />
+`$ cd kafka_2.12-2.0.0/config`<br />
 `$ nano server.properties `<br />
 
 You will need to find the following configs
@@ -93,7 +93,7 @@ You can change them in the **ssl.sh** befor you run it.<br />
 
 * Once the certificates and keystores are created, we can start the Kafka Broker and the embedded zookeeper which comes with the installation.
 
-`$ cd /opt/kafka/kafka_2.11-2.0.0/bin`
+`$ cd /opt/kafka/kafka_2.12-2.0.0/bin`
 
 - First you would need to start the zookeeper service
 
