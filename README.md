@@ -81,7 +81,15 @@ by default i use the following data for certficates creation
 >CA_INFO="/C=XX/ST=kafka/L=kafka/O=kafka/OU=kafka/CN=$KAFKA_HOST/"<br />
 >KAFKA_SSL="/opt/kafka/ssl"<br />
 
-You can change them in the **ssl.sh** befor you run it.
+You can change them in the **ssl.sh** befor you run it.<br />
+- copy ssl.sh file in /opt/kafka/ssl<br />
+
+`$ cp ../setup_secured_kafka_ssl/ssl.sh .`<br />
+- add execution persmission to ssl.sh<br />
+`$ chmod +x ssl.sh`<br />
+- run it<br />
+`$ ./ssl.sh`<br />
+
 * Once the certificates and keystores are created, we can start the Kafka Broker and the embedded zookeeper which comes with the installation.
 
 `$ cd /opt/kafka/kafka_2.11-2.0.0/bin`
