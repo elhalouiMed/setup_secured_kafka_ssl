@@ -45,8 +45,11 @@ zookeeper.connect=localhost:2181
 And change them as follows
 
 >listeners=SSL://:9093
+
 >advertised.listeners=SSL://localhost:9093
+
 >listener.security.protocol.map=SSL:SSL
+
 >log.dirs=/opt/kafka/kafka-logs
 
 The above config is not enough to make Kafka work with SSL, so we would need to add some other custom properties inside server.properties file and later on also create an SSL certificate later on. Add the following at the end of the file
