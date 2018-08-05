@@ -36,9 +36,13 @@ https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.11-2.0.0.tgz
 You will need to find the following configs
 
 >#listeners=PLAINTEXT://:9092
+
  >#advertised_listeners=PLAINTEXT://your.host.name:9092
+ 
  >#listener.security.protocol.map=PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
+ 
 >log.dirs=/tmp/kafka-logs
+
 zookeeper.connect=localhost:2181
 
 
@@ -51,6 +55,8 @@ And change them as follows
 >listener.security.protocol.map=SSL:SSL
 
 >log.dirs=/opt/kafka/kafka-logs
+
+>zookeeper.connect=localhost:2181
 
 The above config is not enough to make Kafka work with SSL, so we would need to add some other custom properties inside server.properties file and later on also create an SSL certificate later on. Add the following at the end of the file
 
