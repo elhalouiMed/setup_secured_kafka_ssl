@@ -115,14 +115,16 @@ You can change them in the **ssl.sh** befor you run it.<br />
 
 - You would need to create another file for the client so that it can use the client-keystore and client-truststore that were previously created. Change the password and necessary configs depending on how you previously set them up
 
-`cat > /opt/kafka/ssl/client-ssl.properties << EOF <br />
-security.protocol=SSL <br />
-ssl.truststore.location=/opt/kafka/ssl/kafka.client.truststore.jks <br />
+`
+$ cat > /opt/kafka/ssl/client-ssl.properties << EOF 
+security.protocol=SSL 
+ssl.truststore.location=/opt/kafka/ssl/kafka.client.truststore.jks 
 ssl.truststore.password=elhaloui123456<br />
-ssl.keystore.location=/opt/kafka/ssl/kafka.client.keystore.jks <br />
-ssl.keystore.password=elhaloui123456 <br />
-ssl.key.password=elhaloui123456<br />
-EOF`<br />
+ssl.keystore.location=/opt/kafka/ssl/kafka.client.keystore.jks
+ssl.keystore.password=elhaloui123456 
+ssl.key.password=elhaloui123456
+EOF
+`
 
 - You can then check whether you can produce or consume using the following commands
 #### Producer
