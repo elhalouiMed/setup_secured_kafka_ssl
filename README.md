@@ -3,24 +3,38 @@
 in this tutorial, i will show you how to setup kafka cluster on your server, secured by ssl authetication & encription
 
 go to the kafka official web site ad download the lastet version of kafka.
+
 https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.11-2.0.0.tgz
 
  at this time, in my case, the latest version is available in the link below
  
+ 
  http://www-us.apache.org/dist/kafka/2.0.0/kafka_2.11-2.0.0.tgz
 
 - switch as root in your machine 
+
 `$ sudo su`
+
 - we’ll start by creating a kafka directory where the installation will be
+
 `$ mkdir -p /opt/kafka`
+
  `$ cd /opt/kafka`
+ 
 - Here you can change kafka version, i will use the latest version available in my case
+
  ` $ wget http://www-us.apache.org/dist/kafka/2.0.0/kafka_2.11-2.0.0.tgz`
+ 
  `$ tar xvf kafka_2.11-2.0.0.tgz`
+ 
 - now we will change some of the kafka broker properties
+
 `$ cd kafka_2.11-2.0.0/configs`
+
 `$ nano server.properties `
+
 You will need to find the following configs
+
 >#listeners=PLAINTEXT://:9092
  >#advertised_listeners=PLAINTEXT://your.host.name:9092
  >#listener.security.protocol.map=PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
@@ -29,6 +43,7 @@ zookeeper.connect=localhost:2181
 
 
 And change them as follows
+
 >listeners=SSL://:9093
 >advertised.listeners=SSL://localhost:9093
 >listener.security.protocol.map=SSL:SSL
@@ -85,18 +100,19 @@ You can change them in the **ssl.sh** befor you run it.
 `$ ./kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2181 --add --allow-principal User:"CN=mohammed,OU=kafka,O=kafka,L=kafka,ST=kafka,C=XX" --consumer --topic test1 --group mohammed-consumer` 
 
 - You would need to create another file for the client so that it can use the client-keystore and client-truststore that were previously created. Change the password and necessary configs depending on how you previously set them up
->cat > /opt/kafka/ssl/client-ssl.properties << EOF 
->security.protocol=SSL 
->ssl.truststore.location=/opt/kafka/ssl/kafka.client.truststore.jks 
->ssl.truststore.password=elhaloui123456
->ssl.keystore.location=/opt/kafka/ssl/kafka.client.keystore.jks 
->ssl.keystore.password=elhaloui123456 
->ssl.key.password=elhaloui123456
->EOF
+
+`cat > /opt/kafka/ssl/client-ssl.properties << EOF 
+security.protocol=SSL 
+ssl.truststore.location=/opt/kafka/ssl/kafka.client.truststore.jks 
+ssl.truststore.password=elhaloui123456
+ssl.keystore.location=/opt/kafka/ssl/kafka.client.keystore.jks 
+ssl.keystore.password=elhaloui123456 
+ssl.key.password=elhaloui123456
+EOF`
 
 - You can then check whether you can produce or consume using the following commands
 #### Producer
--`$ ./kafka-console-producer.sh --broker-list localhost:9093 --topic test1  -producer.config /opt/kafka/ssl/client-ssl.properties`
+`$ ./kafka-console-producer.sh --broker-list localhost:9093 --topic test1  -producer.config /opt/kafka/ssl/client-ssl.properties`
 #### Consumer
 `$ ./kafka-console-consumer.sh --bootstrap-server localhost:9093 --topic test1 --consumer.config /opt/kafka/ssl/client-ssl.properties --group mohammed-consumer --from-beginning`
 
