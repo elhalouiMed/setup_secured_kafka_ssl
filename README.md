@@ -35,44 +35,36 @@ https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.11-2.0.0.tgz
 
 You will need to find the following configs
 
->#listeners=PLAINTEXT://:9092
-
- >#advertised_listeners=PLAINTEXT://your.host.name:9092
- 
- >#listener.security.protocol.map=PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
- 
->log.dirs=/tmp/kafka-logs
-
-zookeeper.connect=localhost:2181
+>#listeners=PLAINTEXT://:9092<br />
+>#advertised_listeners=PLAINTEXT://your.host.name:9092<br />
+>#listener.security.protocol.map=PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL<br />
+>log.dirs=/tmp/kafka-logs<br />
+>zookeeper.connect=localhost:2181<br />
 
 
 And change them as follows
 
->listeners=SSL://:9093
-
->advertised.listeners=SSL://localhost:9093
-
->listener.security.protocol.map=SSL:SSL
-
->log.dirs=/opt/kafka/kafka-logs
-
->zookeeper.connect=localhost:2181
+>listeners=SSL://:9093<br />
+>advertised.listeners=SSL://localhost:9093<br />
+>listener.security.protocol.map=SSL:SSL<br />
+>log.dirs=/opt/kafka/kafka-logs<br />
+>zookeeper.connect=localhost:2181<br />
 
 The above config is not enough to make Kafka work with SSL, so we would need to add some other custom properties inside server.properties file and later on also create an SSL certificate later on. Add the following at the end of the file
 
->security.protocol=SSL
-security.inter.broker.protocol=SSL
-ssl.keystore.location=/opt/kafka/ssl/kafka.server.keystore.jks
-ssl.keystore.password=elhaloui123456
-ssl.key.password=elhaloui123456
-ssl.keystore.type=JKS
-ssl.truststore.location=/opt/kafka/ssl/kafka.server.keystore.jks
-ssl.truststore.password=elhaloui123456
-ssl.truststore.type=JKS
-authorizer.class.name=kafka.security.auth.SimpleAclAuthorizer
-allow.everyone.if.no.acl.found=false
-super.users=User:CN=localhost,OU=kafka,O=kafka,L=kafka,ST=kafka,C=XX
-ssl.client.auth=required
+>security.protocol=SSL<br />
+security.inter.broker.protocol=SSL<br />
+ssl.keystore.location=/opt/kafka/ssl/kafka.server.keystore.jks<br />
+ssl.keystore.password=elhaloui123456<br />
+ssl.key.password=elhaloui123456<br />
+ssl.keystore.type=JKS<br />
+ssl.truststore.location=/opt/kafka/ssl/kafka.server.keystore.jks<br />
+ssl.truststore.password=elhaloui123456<br />
+ssl.truststore.type=JKS<br />
+authorizer.class.name=kafka.security.auth.SimpleAclAuthorizer<br />
+allow.everyone.if.no.acl.found=false<br />
+super.users=User:CN=localhost,OU=kafka,O=kafka,L=kafka,ST=kafka,C=XX<br />
+ssl.client.auth=required<br />
 
 So all the basic necessary configuration are now done for the Kafka Broker. Now we will proceed in creating the necessary directories and SSL certificates to make this work
 
